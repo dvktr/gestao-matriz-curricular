@@ -1,6 +1,7 @@
 import { needHelpBG, needHelpIcon } from "@/assets";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function NeedHelp() {
   return (
@@ -18,15 +19,19 @@ export default function NeedHelp() {
 
         <div className="">
           <div className="text-start">
-            <div className="font-bold text-black text-base">Precisa de ajuda?</div>
+            <div className="font-bold text-black text-base">
+              Precisa de ajuda?
+            </div>
             <div className="font-normal text-black text-xs mb-1">
               Por favor, verifique a documentação
             </div>
           </div>
 
-          <Button className="bg-primary text-white font-semibold rounded-md hover:bg-[#15CA9A] w-full">
-            DOCUMENTAÇÃO
-          </Button>
+          <Link href="/documentacao">
+            <Button className="bg-primary text-white font-semibold rounded-md hover:bg-[#15CA9A] w-full">
+              DOCUMENTAÇÃO
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
