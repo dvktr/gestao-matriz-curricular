@@ -7,7 +7,7 @@ import { DisciplineProvider } from "@/context/DisciplineContext"; // Importe o c
 export default function Simulacao() {
   return (
     <DisciplineProvider>
-      <div className="flex justify-around p-2 overflow-hidden">
+      <div className="flex md:flex-row flex-col md:justify-around md:p-2 md:overflow-hidden">
         <Timetable />
         <SimulationGrid />
       </div>
