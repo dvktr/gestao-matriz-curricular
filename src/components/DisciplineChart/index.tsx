@@ -83,8 +83,8 @@ export default function DisciplineChart() {
   });
 
   return (
-    <div className="w-11/12 py-2">
-      <div className="flex flex-row gap-8 items-start justify-between mb-4">
+    <div className="md:w-11/12 md:py-2 md:px-0 px-4">
+      <div className="flex md:flex-row flex-col gap-8 items-start justify-between mb-4">
         <ProgressCircle
           title="Progresso Geral do Curso"
           completedHours={completedHours}
@@ -96,16 +96,17 @@ export default function DisciplineChart() {
           totalHours={400}
         />
       </div>
-
-      <DisciplineBar
-        disciplines={countDisciplinesPerSemester
-          .filter((_, i) => i !== 0)
-          .map((discipline, i) => ({
-            name: `${i + 1}º`,
-            completedHours: discipline.completed,
-            totalHours: discipline.total,
-          }))}
-      />
+      <div className="md:py-0 py-4">
+        <DisciplineBar
+          disciplines={countDisciplinesPerSemester
+            .filter((_, i) => i !== 0)
+            .map((discipline, i) => ({
+              name: `${i + 1}º`,
+              completedHours: discipline.completed,
+              totalHours: discipline.total,
+            }))}
+        />
+      </div>
     </div>
   );
 }
