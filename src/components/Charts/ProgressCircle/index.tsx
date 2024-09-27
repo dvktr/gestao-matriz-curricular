@@ -26,7 +26,7 @@ const ProgressCircle: React.FC<ProgressCircleProps> = ({ title, completedHours, 
   };
 
   return (
-    <div className="flex flex-col items-center w-full p-4 bg-white rounded-lg shadow-md">
+    <div className="flex flex-col items-center md:w-full p-4 bg-white rounded-lg shadow-md">
       <div className="text-2xl text-black font-bold">{title}</div>
       <Doughnut data={data} />
       <p className="mt-2 text-xl font-semibold text-gray-700">
