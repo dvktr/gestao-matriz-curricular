@@ -57,54 +57,54 @@ export default function SimulationGrid() {
     }
   }, []);
 
-  const handleSelectDiscipline = (discipline: IDiscipline, timetable: Timetable) => {  
+  const handleSelectDiscipline = (discipline: IDiscipline, timetable: Timetable) => {
     const existingDisciplineIndex = selectedDisciplines.findIndex(
       (selected) => selected.code === discipline.code && selected.timetable.days === timetable.days
     );
-  
+
     if (existingDisciplineIndex !== -1) {
       const updatedSelected = selectedDisciplines.filter((_, idx) => idx !== existingDisciplineIndex);
       setSelectedDisciplines(updatedSelected);
       return;
     }
-  
+
     const hasSameCode = selectedDisciplines.some((selected) => selected.code === discipline.code);
     if (hasSameCode) {
       toast.error(`A disciplina ${discipline.name} já foi selecionada com outro horário.`);
       return;
     }
-  
+
     const isConflicting = (selected: IDiscipline, newTimetable: Timetable) => {
       const selectedDays = selected.timetable.days.split(" "); // Separar os dias (ex: ["SEG", "QUA"])
       const newDays = newTimetable.days.split(" "); // Separar os dias da nova disciplina
-  
+
       const selectedHours = selected.timetable.hours.split(" "); // Separar os horários (ex: ["AB-M", "CD-M"])
       const newHours = newTimetable.hours.split(" "); // Separar os horários da nova disciplina
-  
+
       // Verifica se há algum dia em comum entre a disciplina selecionada e a nova
       for (let i = 0; i < selectedDays.length; i++) {
         const selectedDay = selectedDays[i];
         const selectedHour = selectedHours[i];
-  
+
         for (let j = 0; j < newDays.length; j++) {
           const newDay = newDays[j];
           const newHour = newHours[j];
-  
+
           // Se o dia e a hora coincidem, há um conflito
           if (selectedDay === newDay && selectedHour === newHour) {
             return true;
           }
         }
       }
-  
+
       return false;
     };
-  
+
     // Verifica se há conflito de horário com as disciplinas já selecionadas
     const conflictDiscipline = selectedDisciplines.find((selected) =>
       isConflicting(selected, timetable)
     );
-  
+
     if (conflictDiscipline) {
       toast.error(`Conflito com a disciplina ${conflictDiscipline.name} - ${discipline.name}`);
     } else {
@@ -112,12 +112,12 @@ export default function SimulationGrid() {
       setSelectedDisciplines(updatedSelected);
     }
   };
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
 
 
   const isDisciplineSelected = (discipline: IDiscipline, timetable: Timetable) => {
@@ -145,9 +145,8 @@ export default function SimulationGrid() {
                   <h3 className={`text-lg font-bold text-lightblue`}>{discipline.name}</h3>
                 </div>
                 <div
-                  className={`flex justify-center items-center min-w-8 min-h-8 w-8 h-8 rounded-xl border-2 transition-all duration-300 ease-in-out border-primary ${
-                    isDisciplineSelected(discipline, timetable) ? "bg-primary" : "bg-white"
-                  }`}
+                  className={`flex justify-center items-center min-w-8 min-h-8 w-8 h-8 rounded-xl border-2 transition-all duration-300 ease-in-out border-primary ${isDisciplineSelected(discipline, timetable) ? "bg-primary" : "bg-white"
+                    }`}
                 >
                   {isDisciplineSelected(discipline, timetable) && <Check color="#ffffff" />}
                 </div>
@@ -166,9 +165,8 @@ export default function SimulationGrid() {
                 <h3 className={`text-lg font-bold text-lightblue`}>{discipline.name}</h3>
               </div>
               <div
-                className={`flex justify-center items-center min-w-8 min-h-8 w-8 h-8 rounded-xl border-2 transition-all duration-300 ease-in-out border-primary ${
-                  isDisciplineSelected(discipline, { days: "N/A", hours: "N/A" }) ? "bg-primary" : "bg-white"
-                }`}
+                className={`flex justify-center items-center min-w-8 min-h-8 w-8 h-8 rounded-xl border-2 transition-all duration-300 ease-in-out border-primary ${isDisciplineSelected(discipline, { days: "N/A", hours: "N/A" }) ? "bg-primary" : "bg-white"
+                  }`}
               >
                 {isDisciplineSelected(discipline, { days: "N/A", hours: "N/A" }) && <Check color="#ffffff" />}
               </div>

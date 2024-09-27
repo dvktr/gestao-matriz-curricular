@@ -34,7 +34,7 @@ export default function Timetable() {
     for (const discipline of selectedDisciplines) {
       const days = discipline.timetable.days.split(" ");
       const hours = discipline.timetable.hours.split(" ");
-      
+
       for (let i = 0; i < days.length; i++) {
         const day = days[i];
         const hour = hours[i];
@@ -69,7 +69,7 @@ export default function Timetable() {
   };
 
   return (
-    <div className="flex-grow w-full mr-5">
+    <div className="flex-grow w-full mr-5 md:py-0 p-5">
       <Button className="text-black gap-2 font-bold mb-2" onClick={handleDownloadPdf}>
         <Printer /> Compartilhar
       </Button>
