@@ -10,6 +10,7 @@ const routes: Record<string, string> = {
   '/': 'Visão Geral',
   '/configuracao': 'Configurar Disciplinas',
   '/simulacao': 'Simule sua Matrícula',
+  '/documentacao': 'Visualização da Documentação',
 }
 
 export default function Header() {
