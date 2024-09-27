@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎓 Gestão de Matriz - Guia do Usuário
 
-## Getting Started
+Bem-vindo à aplicação de Gestão de Matriz! Este guia irá ajudá-lo a usar o site para simular a escolha de disciplinas e gerar uma tabela de horários personalizada.
 
-First, run the development server:
+## 🖥️ Acessando a Aplicação
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Você pode acessar a aplicação diretamente através do link: **[[Gestão de Compras](https://gestao-matriz-curricular.vercel.app)]**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚶‍♂️ Passo a Passo para Utilizar a Aplicação
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. **Configure as disciplinas que ja cursou**
+![image](https://github.com/user-attachments/assets/b352bb63-e7ab-4a08-baa1-0f82bce1be05)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Entre na rota de configuração.
+- Aqui você poderá visualizar todas as disciplinas da matriz curricular separadas por semestre.
+- Clique em cima das disciplinas que você já cursou
 
-## Learn More
+### 2. **Simule seu pedido de matrícula**
+![image](https://github.com/user-attachments/assets/857dbcda-dd14-4a64-a095-eb1652e52988)
 
-To learn more about Next.js, take a look at the following resources:
+- Entre na rota de simulação
+- Na direita da página há uma lista com todas as disciplinas que você pode cursar e seus respectivos horários.
+- Clique nas disciplinas que você pretende cursar e ele será adicionado na tabela de horários.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. **Visão Geral**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Após configurar as disciplinas que você já cursou, entre na rota Visão Geral.
+- Nessa página, você verá três gráficos que mostram seu desempenho no curso e o quanto falta para completar.
 
-## Deploy on Vercel
+## 🛠️ Funcionalidades
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Escolha de disciplinas e horários:** Selecione disciplinas e aloque seus horários.
+- **Detecção de conflitos de horários:** Receba alertas se houver sobreposição de horários.
+- **Simulação visual de horários:** Veja as disciplinas organizadas em uma tabela semanal.
+- **Salvamento automático:** Suas escolhas são salvas no navegador automaticamente.
+- **Geração de PDF:** Exporte seu horário para PDF e compartilhe com colegas ou professores.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📢 Suporte
+
+Lembrando que essa aplicação é feita de estudantes para estudantes. Se você encontrar algum problema ou tiver dúvidas, entre em contato: victor.mendes07@aluno.ifce.edu.br
+
+**As disciplinas cadastradas são somente do curso de Ciência da Computação, IFCE - Campus Maracanaú (Última atualização de disciplinas: 2024.2)**
