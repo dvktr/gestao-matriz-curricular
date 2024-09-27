@@ -16,13 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-gray flex">
+      <body className="bg-gray flex flex-col md:flex-row">
         <Sidebar />
-        <main className="flex-grow ml-64">
-        <Header/>
+        <main className="flex-grow md:ml-64 md:px-0">
+          <Header />
           {children}
         </main>
-        <Toaster position="top-right" duration={2 * 1000}/>
+        <Toaster position="top-right" duration={2 * 1000} />
       </body>
     </html>
   );
