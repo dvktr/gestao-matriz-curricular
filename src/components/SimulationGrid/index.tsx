@@ -126,12 +126,18 @@ export default function SimulationGrid() {
     );
   };
 
+  availableDisciplines.map((discipline, i) => {
+    if(discipline.timetables.length <= 0){
+      console.log(discipline)
+    }
+  })
+
   return (
     <div className="flex flex-col items-center justify-start bg-white p-3 rounded-xl h-[85vh] overflow-hidden">
       <h2 className="text-lg font-bold text-black mb-4">SELECIONAR DISCIPLINAS</h2>
       <div className="flex flex-col gap-4 w-full h-full overflow-y-auto">
         {availableDisciplines.map((discipline, index) => (
-          discipline.timetables.length > 0 ? (
+          discipline.timetables.length > 0 && (
             discipline.timetables.map((timetable, tIndex) => (
               <div
                 key={`${discipline.code}-${tIndex}-${timetable}`}
@@ -152,25 +158,6 @@ export default function SimulationGrid() {
                 </div>
               </div>
             ))
-          ) : (
-            <div
-              key={index}
-              className={`flex justify-between items-center p-4 rounded-lg shadow-md cursor-pointer bg-white text-gray-800 w-full`}
-              onClick={() => handleSelectDiscipline(discipline, { days: "N/A", hours: "N/A" })}
-            >
-              <div>
-                <p className="text-xs font-normal text-[#A0AEC0]">
-                  {discipline.semester}º SEMESTRE - {discipline.workload}H
-                </p>
-                <h3 className={`text-lg font-bold text-lightblue`}>{discipline.name}</h3>
-              </div>
-              <div
-                className={`flex justify-center items-center min-w-8 min-h-8 w-8 h-8 rounded-xl border-2 transition-all duration-300 ease-in-out border-primary ${isDisciplineSelected(discipline, { days: "N/A", hours: "N/A" }) ? "bg-primary" : "bg-white"
-                  }`}
-              >
-                {isDisciplineSelected(discipline, { days: "N/A", hours: "N/A" }) && <Check color="#ffffff" />}
-              </div>
-            </div>
           )
         ))}
       </div>
