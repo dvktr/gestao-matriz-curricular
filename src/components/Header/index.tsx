@@ -44,7 +44,7 @@ export default function Header() {
           <Link onClick={() => setOpenHeader(false)} href={"/simulacao"}>
             <li>SIMULACAO</li>
           </Link>
-          <Link onClick={() => setOpenHeader(false)} href={"/simulacao"}>
+          <Link onClick={() => setOpenHeader(false)} href={"/documentacao"}>
             <li>DOCUMENTAÇÃO</li>
           </Link>
         </ul>
