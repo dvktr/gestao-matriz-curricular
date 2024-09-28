@@ -17,7 +17,7 @@ export default function Simulacao() {
   return (
     <DisciplineProvider>
       <div className="flex md:flex-row flex-col md:justify-around md:p-2 md:overflow-hidden">
-        <div className="flex-col items-start">
+        <div className="flex flex-col">
           {isClient && (
             <PDFDownloadLink
               document={
@@ -27,7 +27,7 @@ export default function Simulacao() {
                 </DisciplineProvider>
               }
               fileName="grade-horarios.pdf"
-              className="text-black gap-2 font-bold mb-2 flex items-center"
+              className="text-black gap-2 font-bold mb-2 flex items-center w-2 px-5"
             >
               {({ loading }) => (
                 <Button>
