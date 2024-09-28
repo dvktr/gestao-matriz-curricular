@@ -21,7 +21,7 @@ const timeSlotMap = {
 
 Font.register({
   family: 'Barlow Condensed Medium Italic',
-  src: 'http://localhost:3000/fonts/BarlowCondensed-MediumItalic.ttf' 
+  src: `${process.env.NEXT_PUBLIC_API_URL}/fonts/BarlowCondensed-MediumItalic.ttf`, 
 });
 
 const daysOfWeek = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"];
