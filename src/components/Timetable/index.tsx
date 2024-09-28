@@ -2,11 +2,9 @@
 
 import { useEffect } from "react";
 import { IDiscipline } from "@/types/discipline";
-import { useDisciplineContext } from "@/context/DisciplineContext"; // Ajuste o caminho conforme necessário
+import { useDisciplineContext } from "@/context/DisciplineContext";
 import { Printer } from "lucide-react";
 import { Button } from "../ui/button";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 
 const dayMap: { [key: string]: number } = {
   "SEG": 1,
@@ -27,7 +25,11 @@ const timeSlotMap: { [key: string]: string } = {
 
 const daysOfWeek = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"];
 
-export default function Timetable() {
+interface TimetableProps {
+  isPrint: boolean;
+}
+
+export default function Timetable({ isPrint }: TimetableProps) {
   const { selectedDisciplines } = useDisciplineContext();
 
   const getTimetableForCell = (dayIndex: number, timeSlot: string) => {
@@ -47,34 +49,10 @@ export default function Timetable() {
     return null;
   };
 
-  const handleDownloadPdf = () => {
-    const input = document.getElementById("timetable-table");
-    if (input) {
-      html2canvas(input).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF();
-        const imgWidth = 190; // Largura da imagem no PDF
-        const pageHeight = pdf.internal.pageSize.height;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        const heightLeft = imgHeight;
-
-        let position = 0;
-
-        pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
-        position += heightLeft;
-
-        pdf.save("timetable.pdf");
-      });
-    }
-  };
-
   return (
     <div className="flex-grow w-full mr-5 md:py-0 p-5">
-      <Button className="text-black gap-2 font-bold mb-2" onClick={handleDownloadPdf}>
-        <Printer /> Compartilhar
-      </Button>
       <div id="timetable-table" className="overflow-auto">
-        <table className="w-full table-auto border-collapse border border-gray-300">
+        <table className={`w-full ${isPrint ? 'text-white' : 'text-black'} table-auto border-collapse border border-gray-300`}>
           <thead>
             <tr>
               <th className="border border-gray-300 p-2">Horário</th>

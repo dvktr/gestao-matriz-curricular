@@ -9,8 +9,12 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            backgroundImage: {
+                'timetable-bg': "url('/assets/timetable-bg.svg')",
+              },
             fontFamily: {
                 sans: ['Roboto', 'sans-serif'],
+                'condensed': ['"Barlow Condensed Medium Italic"', 'sans-serif'],
             },
             fontWeight: {
                 normal: 400,
