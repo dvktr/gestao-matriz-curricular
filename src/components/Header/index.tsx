@@ -16,7 +16,6 @@ const routes: Record<string, string> = {
 export default function Header() {
   const pathname = usePathname();
   const [openHeader, setOpenHeader] = useState(false)
-  console.log(pathname)
 
   function toggleHeaderMobile() {
     if (openHeader === false) {

@@ -126,12 +126,6 @@ export default function SimulationGrid() {
     );
   };
 
-  availableDisciplines.map((discipline, i) => {
-    if(discipline.timetables.length <= 0){
-      console.log(discipline)
-    }
-  })
-
   return (
     <div className="flex flex-col items-center justify-start bg-white p-3 rounded-xl h-[85vh] overflow-hidden">
       <h2 className="text-lg font-bold text-black mb-4">SELECIONAR DISCIPLINAS</h2>
