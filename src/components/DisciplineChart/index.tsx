@@ -44,10 +44,10 @@ export default function DisciplineChart() {
 
       // Calculando horas
       finalDisciplines.forEach((discipline) => {
-        total += discipline.workload;
+        total = discipline.type == "OBG" ? total += discipline.workload : total
         if (discipline.attended) {
-          completed += discipline.workload;
-
+          completed = discipline.type == "OBG" ? completed += discipline.workload : completed;
+          
           if (discipline.type == "OPT") {
             completedOpt += discipline.workload;
           }
@@ -86,7 +86,7 @@ export default function DisciplineChart() {
     <div className="md:w-11/12 md:py-2 md:px-0 px-4">
       <div className="flex md:flex-row flex-col gap-8 items-start justify-between mb-4">
         <ProgressCircle
-          title="Progresso Geral do Curso"
+          title="Horas em Disciplinas Obrigatórias"
           completedHours={completedHours}
           totalHours={totalHours}
         />
